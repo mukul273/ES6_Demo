@@ -1,0 +1,217 @@
+es6 Intro
+
+node -v
+npm -v
+
+mkdir es6 (to make folder name as es6)
+npm install -y (creates the empty package.json)
+npm install --save-dev webpack - to install webpack
+you need to add webpack configuration file into the project like webpack.config.js
+
+/*****/
+Setting Up With Webpack (extra notes)
+
+In case you missed the last lecture's description, here's some useful notes.
+
+If you approach some issues running 'npm start', then try the following fixes one at a time:
+
+1) Install webpack globally with `npm install webpack -g'.
+
+2) In webpack.config.js change the path in output to 'path: __dirname + '/build' in this file.
+
+3) If the above path does not work, also try: path: __dirname + '/dist/js'
+
+4) Clone the repo, run npm install and npm start and you should be good to go!
+
+/*****/
+
+Break: Babel and Webpack
+
+Babel and Webpack
+
+Here comes the first optional break. Stick around for an overview of what we just learned if you’d like. Or just catch the quality humor that finishes this thing off!
+
+We just spent some time setting up babel and webpack so that we can code in es6. We also set up our configuration file for webpack and prepared a project that transforms es6 code into JavaScript. The details of these configuration files really matter, so here’s another link to the github repo for this course (https://github.com/15Dkatz/es6-tutorial). Feel free to use this repo as a starting point for any es6 project you do in the future!
+
+Also, before we get to some actual coding, let’s overview the main points of babel and webpack.
+
+    A transpiler reads code written in one language and produces the equivalent code in another.
+
+    We need transpilers so that our pretty es6 code compiles into the dense JavaScript code that browser like. Babel is one of the most popular es6 transpilers.
+
+    Using webpack allows us to create an environment that transforms es6 code with babel.
+
+        It combines multiple modules into one js file to reduce errors and resources on the client-side.
+
+        Shipping with a development server, it gives us live code updating for free!
+
+Overall, we JavaScript developers have to appreciate awesome libraries like these. I mean, I could just babel on and on about these great features.
+
+
+{
+	// This is called as block. Variable defined in this block have scope confined to only block, not outside of block
+}
+
+let keyword uses to define an variable. in older days we used to call var a = something now we can say let
+
+const variable can't be reassigned
+template literals are good way of concatenating the variables and their values
+
+/******/
+Coding Break: New ES6 Syntax
+
+Hey! We made it to the end of another section. Nice work. We learned a lot in this one too. Now, go ahead and take an optional break. Grab some coffee, tea, gatorade, whatever you need!
+
+While we have a moment though, let’s review the important topics we covered in this section:
+
+    Block scoping binds variable declarations to blocks of code, { .. }.
+
+    The let keyword replaces var in es6.
+
+    The const keyword declares a variable that cannot be re-assigned.
+
+    Template literals in es6 are strings with embedded variables or code inside. They have surrounding backticks `` with interpolated ${} symbols for variables.
+/******/
+Spread operattor for manipulating the arrays
+
+destructuring array values
+let c = [100, 200];
+let [d,e] = c; // this will deconstruct teh array values into 2 vars
+Destructuring assignment looks at the order in the array.
+
+destructuring objects
+//In older Javascript
+let wizard = {magical:true, power:10};
+let magical = wizard.magical;
+let power = wizard.power;
+log(magical, power);
+
+// new way of doing this in ES6 Syntax
+let objArr = {ObjExists:true, objId:100};
+let {ObjExists, objId} = objArr;
+console.log(ObjExists, objId);
+
+// Another example
+let bool1 = true;
+let idVal = 10;
+let ranger {bool1:false, idVal:200};
+({bool1, idVal} = ranger);
+console.log(bool1, idVal)
+
+/********/
+
+Coding Break: Operating and Destructuring
+
+We made it to the end of this section, and now we can take a short break (remember these are optional)!
+
+Let’s take a moment to review the important material we just learned.
+
+    The es6 spread operator spreads the contents of an array or object into multiple variables. Its syntax uses three periods, just like so: …
+
+    Destructuring Assignment  in es6 allows us to extract data from arrays or objects into separate, distinct variables.
+
+    Array Destructuring Assignment assigns multiple variables from an array. For instance, let [a, b] = c, where values ‘a’ and ‘b’ assign in order to the respective elements in ‘c’.
+
+    Object Destructuring Assignment assigns multiple variables form an object. For instance, let { a, b } c, where values ‘a’ and ‘b’ assign to the ‘a’ and ‘b’ properties in ‘c’.
+
+Overall, the spread and operator and destructuring assignment will significantly reduce the length of your JavaScript code. Sometimes, using the spread operators and destructuring assignment techniques really feels like coding magic!
+
+What do you call a professional that fixes engines?
+
+A machine operator.
+
+How about someone who fixes telephones?
+
+A telephone operator, of course.
+
+How about someone who fixes butter and jam?
+
+Why, that’s a …spread operator.
+/********/
+arrow functions
+are anonymous
+they are defined using operator as opposed to function keyword
+
+// map
+function passed as an argument to map is called callback.
+
+// filter method
+returns a new array based on initial array
+
+
+Coding Break: Functions and Methods
+
+Whew! We just learned about arrow functions and helper methods, and it seems like a nice break from learning could help (totally optional of course).
+
+Let’s take a moment though, to overview the important topics we discussed in this section.
+
+Arrow functions work like normal method expressions in JavaScript, but with a shorter syntax. They also have the added benefit of being anonymous. In addition, unlike normal JavaScript function, they do not bind the this object to their function scope.
+The map helper method in es6 allows us to create arrays by calling a function on each element of an initial array.
+The filter helper method in es6 creates new arrays with all the same elements of an initial array depending on a test that we give it.
+
+Overall, arrow functions, whether used in place of normal JavaScript functions, or in helper methods like map, filter, and more, will appear everywhere in es6. So get used to that funny looking syntax! You might even learn to love arrow functions (if you don’t already). I mean, just look at it. Instead of the word, function, we have beautiful, plain, and clear thing: =>
+
+Coding Break: Modules
+
+If you finished this section pretty quickly, by all means skip this optional coding break! The pace you go through this course is completely up to you!
+
+Let’s briefly overview the main concepts discussed in this section on modules.
+
+    Modules refer to reusable pieces of code that often exist independently in their own separate files.
+
+    Export in es6 sends functions, objects, or primitive values from one module to another.
+
+    Import in es6 receives functions, objects, or primitive values from another module.
+
+    The default export represents a fallback or “main” value/function for a module.
+
+    You cannot write the export default syntax and declare variables on the same line.
+
+Overall, this section introduced the important principle of modules. In every large application using es6 that you come across, you will see modules. In fact, that giant folder that node installs, node_modules, simply collects a bunch of modules that other JavaScript developers created!
+
+Now, have you heard the story of the famous JavaScript choreographer? Well, he had big plans for an amazing performance. And he had three world-class dancers, named “export”, “default”, and “const.” But whenever he tried to teach them his choreography, his frustration from failing only grew more and more.
+
+So… why did he fail?
+
+He couldn’t get “export”, “default”, and “const” to be on the same line. 
+
+
+
+Coding Break: Classes
+
+You probably have the hang of this by this point and know exactly how you want to respond. However, we have arrived at another optional coding break. Up to you to just skip it or take the chance to briefly review what we just learned!
+
+ES6 brought in a concept widely recognized in the computer science field: object-oriented programming. Let’s review what that means in terms of classes, inheritance, and more.
+
+    Object-oriented programming models “objects” to real world objects, assigning state and relevant methods to those “objects.”
+
+    Encapsulation, keeps data safe from use outside of classes.
+
+    Inheritance occurs when a class extends another class, receiving all the same behavior from that base class.
+
+    A class in es6 holds pertinent data and methods and also allows for simple inheritance.
+
+    Extends is an es6 keyword that signals a class inheriting data from a base class
+
+Classes in es6 welcome a whole new realm of possible programming in es6. Also, JavaScript classes compared to other languages feature a much more understandable syntax. Not to mention that the actual inheritance occurs much more smoothly when compared to the object-oriented programming models featured elsewhere.
+
+Stay classy coders.
+
+
+
+Overview: Extending Upon ES6 With React
+
+Congratulations on finishing this final coding section on extending upon es6 with React. Give yourself a pat on the back!
+
+Let’s take a moment to review the important concepts we just discussed:
+
+    React is a very popular JavaScript framework supported by Facebook that allows for web application development in es6.
+
+    JSX adds XML syntax to JavaScript and allows for rendering elements and components onto a web application.
+
+    A promise handles the eventual result of an operation and determines if it returns a success or failure.
+
+Overall, I hope you reacted to this section positively, and you discovered new and exciting concepts! We’ve covered the essentials and basics of es6, but so much more lies ahead to discover in the realm of JavaScript! And that’s a promise.
+
+
+
